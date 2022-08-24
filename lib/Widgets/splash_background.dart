@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-class Background extends StatelessWidget {
+class SplashBackground extends StatelessWidget {
   final Widget child;
-  const Background({Key? key, required this.child}) : super(key: key);
+  const SplashBackground({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +14,9 @@ class Background extends StatelessWidget {
         alignment: Alignment.center,
         clipBehavior: Clip.antiAliasWithSaveLayer,
         children: [
-          Positioned(
-            top: size.height * 0.012,
-            child: Image.asset(
-              'assets/images/top-logo.jpeg',
-              width: size.width * 0.65,
-            ),
+          Image.asset(
+            'assets/images/top-logo.jpeg',
+            width: size.width * 0.75,
           ),
           Positioned(
             top: 0,

@@ -119,6 +119,7 @@ class _LoginPageState extends State<LoginPage> {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
+        // backgroundColor: Colors.white,
         body: Container(
           width: double.infinity,
           height: double.infinity,
@@ -129,158 +130,162 @@ class _LoginPageState extends State<LoginPage> {
           //     fit: BoxFit.contain,
           //   ),
           // ),
-          child: Background(
-            child: SingleChildScrollView(
-              child: SafeArea(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 12.0, vertical: 16.0),
-                  child: Form(
-                    key: _formKey,
-                    // autovalidateMode: AutovalidateMode.onUserInteraction,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        InkWell(
-                          onTap: () => Navigator.pop(context),
-                          borderRadius: BorderRadius.circular(10.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(8.0),
-                            clipBehavior: Clip.antiAliasWithSaveLayer,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10.0),
-                              border: Border.all(
-                                color: ColorConstants.kPrimaryLightColor1,
-                                width: 1.0,
+          child: SafeArea(
+            child: Background(
+              child: SingleChildScrollView(
+                child: SafeArea(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 12.0, vertical: 16.0),
+                    child: Form(
+                      key: _formKey,
+                      // autovalidateMode: AutovalidateMode.onUserInteraction,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          InkWell(
+                            onTap: () => Navigator.pop(context),
+                            borderRadius: BorderRadius.circular(10.0),
+                            child: Container(
+                              padding: const EdgeInsets.all(8.0),
+                              clipBehavior: Clip.antiAliasWithSaveLayer,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10.0),
+                                border: Border.all(
+                                  color: ColorConstants.kPrimaryLightColor1,
+                                  width: 1.0,
+                                ),
                               ),
-                            ),
-                            child: const Icon(
-                              Icons.arrow_back_ios_rounded,
-                              size: 20.0,
-                              color: ColorConstants.kSecondaryColor,
+                              child: const Icon(
+                                Icons.arrow_back_ios_rounded,
+                                size: 20.0,
+                                color: ColorConstants.kSecondaryColor,
+                              ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: size.height * 0.06),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            // Center(
-                            // child:Container(
-                            //   width: 200,
-                            //   height: 200,
-                            //   decoration: BoxDecoration(
-                            //     shape: BoxShape.circle,
-                            //     image: DecorationImage(
-                            //         image: new AssetImage("assets/images/pmaj.png"),
-                            //         fit: BoxFit.fill
-                            //     ),
-                            //   ),
-                            // ),),
-                            SizedBox(height: size.height * 0.016),
-                            const Text(
-                              "PMAJ-G",
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                color: ColorConstants.kSecondaryColor,
-                                fontWeight: FontWeight.w600,
+                          SizedBox(height: size.height * 0.06),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              // Center(
+                              // child:Container(
+                              //   width: 200,
+                              //   height: 200,
+                              //   decoration: BoxDecoration(
+                              //     shape: BoxShape.circle,
+                              //     image: DecorationImage(
+                              //         image: new AssetImage("assets/images/pmaj.png"),
+                              //         fit: BoxFit.fill
+                              //     ),
+                              //   ),
+                              // ),),
+                              SizedBox(height: size.height * 0.016),
+                              const Text(
+                                "PMAJ-G",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 20.0,
+                                  color: ColorConstants.kSecondaryColor,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
-                            ),
-                            // SizedBox(height: size.height * 0.016),
-                            // const Text(
-                            //   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-                            //   textAlign: TextAlign.center,
-                            //   style: TextStyle(
-                            //     fontSize: 16.0,
-                            //     color: ColorConstants.kSecondaryLightColor,
-                            //     fontWeight: FontWeight.w400,
-                            //   ),
-                            // ),
-                          ],
-                        ),
-                        SizedBox(height: size.height * 0.040),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextFormFieldWidget(
-                              controller: _registrationController,
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              label: "Registration ID",
-                              labelColor:
-                                  ColorConstants.kPrimaryColor.withAlpha(160),
-                              borderColor:
-                                  ColorConstants.kPrimaryUltraLightColor,
-                              bgColor: ColorConstants.kPrimaryUltraLightColor,
-                              //validator: TextFieldValidation.userMobileValidation,
-                              inputType: TextInputType.text,
-                              onChanged: (value) {
-                                print(value);
-                              },
-                            ),
-                            SizedBox(height: size.height * 0.012),
-                            Text(
-                              'OR',
-                              style: TextStyle(
-                                fontStyle: FontStyle.italic,
-                                fontSize: 20.0,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
+                              // SizedBox(height: size.height * 0.016),
+                              // const Text(
+                              //   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+                              //   textAlign: TextAlign.center,
+                              //   style: TextStyle(
+                              //     fontSize: 16.0,
+                              //     color: ColorConstants.kSecondaryLightColor,
+                              //     fontWeight: FontWeight.w400,
+                              //   ),
+                              // ),
+                            ],
+                          ),
+                          SizedBox(height: size.height * 0.040),
+                          Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              TextFormFieldWidget(
+                                controller: _registrationController,
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                label: "Registration ID",
+                                labelColor:
+                                    ColorConstants.kPrimaryColor.withAlpha(160),
+                                borderColor:
+                                    ColorConstants.kPrimaryUltraLightColor,
+                                bgColor: ColorConstants.kPrimaryUltraLightColor,
+                                //validator: TextFieldValidation.userMobileValidation,
+                                inputType: TextInputType.text,
+                                onChanged: (value) {
+                                  print(value);
+                                },
                               ),
-                            ),
-                            SizedBox(height: size.height * 0.012),
-                            TextFormFieldWidget(
-                              controller: _mobileController,
-                              autovalidateMode:
-                                  AutovalidateMode.onUserInteraction,
-                              label: "Mobile No",
-                              labelColor:
-                                  ColorConstants.kPrimaryColor.withAlpha(160),
-                              borderColor:
-                                  ColorConstants.kPrimaryUltraLightColor,
-                              bgColor: ColorConstants.kPrimaryUltraLightColor,
-                              //validator: TextFieldValidation.userMobileValidation,
-                              inputType: TextInputType.number,
-                              onChanged: (value) {
-                                print(value);
-                              },
-                            ),
-                            SizedBox(height: size.height * 0.016),
-                            RoundedButtonWidget(
-                              onPressed: () {
-                                // Navigator.push(
-                                //   context,
-                                //   MaterialPageRoute(builder: (context) => VerifyPage()),
-                                // );
-                                // if (_formKey.currentState!.validate()) {
-                                //   // Navigator.of(context)
-                                //   //     .pushNamed('dashboard_page');
-                                showDialog(
-                                    context: context,
-                                    builder: (BuildContext context) {
-                                      return Center(
-                                        child: CircularProgressIndicator(
-                                          valueColor:
-                                              new AlwaysStoppedAnimation<Color>(
-                                                  ColorConstants.kPrimaryColor),
-                                        ),
-                                      );
-                                    });
-                                userLogin();
-                                // } else {
-                                //   print("Error");
-                                // }
-                              },
-                              label: "Login",
-                              bgColor: ColorConstants.kPrimaryColor,
-                              labelColor: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ],
+                              SizedBox(height: size.height * 0.012),
+                              Text(
+                                'OR',
+                                style: TextStyle(
+                                  fontStyle: FontStyle.italic,
+                                  fontSize: 20.0,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                              SizedBox(height: size.height * 0.012),
+                              TextFormFieldWidget(
+                                controller: _mobileController,
+                                autovalidateMode:
+                                    AutovalidateMode.onUserInteraction,
+                                label: "Mobile No",
+                                labelColor:
+                                    ColorConstants.kPrimaryColor.withAlpha(160),
+                                borderColor:
+                                    ColorConstants.kPrimaryUltraLightColor,
+                                bgColor: ColorConstants.kPrimaryUltraLightColor,
+                                //validator: TextFieldValidation.userMobileValidation,
+                                inputType: TextInputType.number,
+                                onChanged: (value) {
+                                  print(value);
+                                },
+                              ),
+                              SizedBox(height: size.height * 0.016),
+                              RoundedButtonWidget(
+                                onPressed: () {
+                                  // Navigator.push(
+                                  //   context,
+                                  //   MaterialPageRoute(builder: (context) => VerifyPage()),
+                                  // );
+                                  // if (_formKey.currentState!.validate()) {
+                                  //   // Navigator.of(context)
+                                  //   //     .pushNamed('dashboard_page');
+                                  showDialog(
+                                      context: context,
+                                      builder: (BuildContext context) {
+                                        return Center(
+                                          child: CircularProgressIndicator(
+                                            valueColor:
+                                                new AlwaysStoppedAnimation<
+                                                        Color>(
+                                                    ColorConstants
+                                                        .kPrimaryColor),
+                                          ),
+                                        );
+                                      });
+                                  userLogin();
+                                  // } else {
+                                  //   print("Error");
+                                  // }
+                                },
+                                label: "Login",
+                                bgColor: ColorConstants.kPrimaryColor,
+                                labelColor: Colors.white,
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),

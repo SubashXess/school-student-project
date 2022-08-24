@@ -1,6 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pmajg/Constants/ColorConstants.dart';
+import 'package:pmajg/Widgets/splash_background.dart';
+
 import 'package:pmajg/user_type.dart';
 import 'package:pmajg/verify_page.dart';
 import '../MySharedPreferences.dart';
@@ -34,8 +36,10 @@ class SplashScreenState extends State<SplashScreen> {
   Future check() async {
     print('STATUS CHK :' + isLoggedIn.toString());
     if (isLoggedIn == false) {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (context) => UserType()));
+      // Navigator.of(context)
+      //     .pushReplacement(MaterialPageRoute(builder: (context) => UserType()));
+      Navigator.of(context).pushReplacement(
+          MaterialPageRoute(builder: (context) => DashboardPage()));
     } else {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => DashboardPage()));
@@ -63,12 +67,15 @@ class SplashScreenState extends State<SplashScreen> {
         children: <Widget>[
           SafeArea(
             child: Container(
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('assets/images/splash.jpg'),
-                  fit: BoxFit.fitWidth,
-                ),
+              child: SplashBackground(
+                child: Container(),
               ),
+              // decoration: const BoxDecoration(
+              //   image: DecorationImage(
+              //     image: AssetImage('assets/images/splash.jpg'),
+              //     fit: BoxFit.fitWidth,
+              //   ),
+              // ),
             ),
           ),
         ],

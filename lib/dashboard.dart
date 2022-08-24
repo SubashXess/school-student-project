@@ -5,6 +5,8 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pmajg/Widgets/background.dart';
+import 'package:pmajg/Widgets/phase_button_widget.dart';
+import 'package:pmajg/image_preview_screen.dart';
 import 'package:pmajg/user_type.dart';
 import 'package:pmajg/verify_page.dart';
 
@@ -146,215 +148,55 @@ class _DashboardPageState extends State<DashboardPage>
           ),
         ],
       ),
-      backgroundColor: Colors.white,
+      // backgroundColor: Colors.white,
       body: Container(
         width: double.infinity,
         height: double.infinity,
         child: Background(
-          child: Container(
-            // decoration: const BoxDecoration(
-            //   image: DecorationImage(
-            //     image: AssetImage('assets/images/login.jpg'),
-            //     fit: BoxFit.contain,
-            //   ),
-            // ),
-            child: ListView(
-              children: [
-                // Center(
-                //   child:Container(
-                //     margin: const EdgeInsets.only(top: 20),
-                //     width: 200,
-                //     height: 200,
-                //     decoration: BoxDecoration(
-                //       shape: BoxShape.circle,
-                //       image: DecorationImage(
-                //           image: new AssetImage("assets/images/pmaj.png"),
-                //           fit: BoxFit.fill
-                //       ),
-                //     ),
-                //   ),),
-                SizedBox(
-                  height: 20,
+          child: ListView.builder(
+            itemCount: 3,
+            padding: EdgeInsets.zero,
+            physics: const NeverScrollableScrollPhysics(),
+            shrinkWrap: true,
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: const EdgeInsets.only(bottom: 10.0),
+                child: PhaseButtonWidget(
+                  size: size,
+                  label: label[index],
+                  viewbtn: 'View',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => VerifyPage(
+                          label[index].toString(),
+                        ),
+                      ),
+                    );
+                  },
+                  onPressedView: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ImagePreviewScreen(
+                          appbartitle: label[index].toString(),
+                        ),
+                      ),
+                    );
+                  },
                 ),
-                // Container(
-                //   //height: 150,
-                //   width: double.infinity,
-                //   decoration: const BoxDecoration(
-                //     borderRadius: BorderRadius.only(
-                //       bottomLeft: Radius.circular(30.0),
-                //       bottomRight: Radius.circular(30.0),
-                //     ),
-                //     color: ColorConstants.kPrimaryUltraLightColor,
-                //   ),
-                // ),
-                // Container(
-                //   //padding: const EdgeInsets.fromLTRB(0, 0, 0, 10.0),
-                //   decoration: const BoxDecoration(
-                //     borderRadius: BorderRadius.only(
-                //       bottomLeft: Radius.circular(20.0),
-                //       bottomRight: Radius.circular(20.0),
-                //     ),
-                //     color:ColorConstants.kPrimaryUltraLightColor,
-                //   ),
-                //   child: Column(
-                //     crossAxisAlignment: CrossAxisAlignment.start,
-                //     children: <Widget>[
-                //     ],
-                //   ),
-                // ),
-                Container(
-                  alignment: Alignment.center,
-                  margin: const EdgeInsets.only(top: 100),
-                  child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: <Widget>[
-                        GestureDetector(
-                          onTap: () async {
-                            // setState(() {
-                            //   showLoading = true;
-                            // });
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      VerifyPage('Phase One')),
-                            );
-                          },
-                          child: Container(
-                            height: 70,
-                            width: 165,
-                            margin: const EdgeInsets.only(left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                              ),
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0),
-                                  topLeft: Radius.circular(10),
-                                  bottomLeft: Radius.circular(10)),
-                              color: Colors.white,
-                            ),
-                            child: const Center(
-                              child: Text(
-                                "Phase One",
-                                style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontFamily: 'Roboto',
-                                  fontSize: 18,
-                                  // color: const Color(0xff17278d),
-                                  //color: Colors.deepPurple,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        GestureDetector(
-                          onTap: () async {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      VerifyPage('Phase Two')),
-                            );
-                          },
-                          child: Container(
-                            height: 70,
-                            width: 165,
-                            margin: const EdgeInsets.only(left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                              ),
-                              color: Colors.white,
-                              borderRadius: const BorderRadius.only(
-                                  topRight: const Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0),
-                                  topLeft: const Radius.circular(10),
-                                  bottomLeft: const Radius.circular(10)),
-                            ),
-                            child: const Center(
-                              // Column(
-                              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              //   crossAxisAlignment: CrossAxisAlignment.start,
-                              //   children: [])
-                              child: const Text(
-                                "Phase Two",
-                                style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontFamily: 'Roboto',
-                                  fontSize: 18,
-                                  // color: const Color(0xff17278d),
-                                  //color: Colors.deepPurple,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        GestureDetector(
-                          onTap: () async {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      VerifyPage('Phase Three')),
-                            );
-                          },
-                          child: Container(
-                            height: 70,
-                            width: 165,
-                            margin: const EdgeInsets.only(left: 10, right: 10),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.black,
-                              ),
-                              color: Colors.white,
-                              borderRadius: const BorderRadius.only(
-                                  topRight: const Radius.circular(10.0),
-                                  bottomRight: Radius.circular(10.0),
-                                  topLeft: const Radius.circular(10),
-                                  bottomLeft: const Radius.circular(10)),
-                            ),
-                            child: const Center(
-                              // Column(
-                              //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              //   crossAxisAlignment: CrossAxisAlignment.start,
-                              //   children: [])
-                              child: const Text(
-                                "Phase Three",
-                                style: TextStyle(
-                                  fontStyle: FontStyle.italic,
-                                  fontFamily: 'Roboto',
-                                  fontSize: 18,
-                                  // color: const Color(0xff17278d),
-                                  //color: Colors.deepPurple,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                                textAlign: TextAlign.center,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ]),
-                ),
-              ],
-            ),
+              );
+            },
           ),
         ),
       ),
     );
   }
+
+  final List<String> label = [
+    'Phase One',
+    'Phase Two',
+    'Phase Three',
+  ];
 }
